@@ -1,11 +1,47 @@
 @media (min-width: 1216px) {
-    .container, .header {
+  .container,
+  .header {
     max-width: 1152px;
-    }
+  }
 }
 
 @media (min-width: 1408px) {
-    .container, .header {
+  .container,
+  .header {
     max-width: 1344px;
-    }
+  }
+}
+
+@media (max-width: 1024px) {
+  .container {
+    padding: 2rem 2rem;
+  }
+
+  .card {
+    min-width: auto;
+  }
+}
+
+@media (max-width: 768px) {
+  .card {
+    width: 100%;
+    min-width: auto;
+  }
+
+  .card_heading {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 900px) {
+  .header__nav {
+    display: none;
+  }
+  .burger-menu {
+    display: block;
+    align-self: center;
+  }
+  .header {
+    justify-content: space-between;
+  }
 }
