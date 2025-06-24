@@ -1,0 +1,11 @@
+@media (min-width: 1216px) {
+    .container, .header {
+    max-width: 1152px;
+    }
+}
+
+@media (min-width: 1408px) {
+    .container, .header {
+    max-width: 1344px;
+    }
+}
