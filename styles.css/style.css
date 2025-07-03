@@ -268,10 +268,10 @@ html {
   cursor: pointer;
 }
 
-  .overlay,
-  .close-btn {
-    display: none;
-  }
+.overlay,
+.close-btn {
+  display: none;
+}
 
 .search-container {
   max-width: 700px;
@@ -291,7 +291,7 @@ html {
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
   background-color: #fff;
   color: #333;
-  font-family: 'Open Sans', sans-serif;
+  font-family: "Open Sans", sans-serif;
 }
 
 .search-box:focus {
@@ -305,5 +305,5 @@ html {
   padding: 50px 0;
   color: #666;
   font-size: 18px;
-  font-family: 'Open Sans', sans-serif;
+  font-family: "Open Sans", sans-serif;
 }
