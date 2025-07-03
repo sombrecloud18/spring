@@ -12,70 +12,17 @@
     <link rel="stylesheet" href="styles.css/fonts.css" />
     <link rel="stylesheet" href="styles.css/media.css" />
     <title>Spring | Projects</title>
+    <script src="index.js"></script>
   </head>
   <body class="body">
     <header class="header">
       <img class="header__logo" src="img/logo.png" alt="Логотип Spring.io" />
       <img class="burger-menu" src="img/burger-menu.png" />
       <nav class="header__nav">
-        <ul class="header__menu">
-          <li class="menu-item has-dropdown">
-            Why Spring
-            <div class="dropdown-content">
-              <a href="#">Overview</a>
-              <a href="#">Generative AI</a>
-              <a href="#">Microservices</a>
-              <a href="#">Reactive</a>
-              <a href="#">Event Driven</a>
-              <a href="#">Cloud</a>
-              <a href="#">Web Applications</a>
-              <a href="#">Serverless</a>
-              <a href="#">Batch</a>
-            </div>
-          </li>
-          <li class="menu-item has-dropdown">
-            Learn
-            <div class="dropdown-content">
-              <a href="#">Overview</a>
-              <a href="#">Quickstart</a>
-              <a href="#">Guides</a>
-              <a href="#">Blog</a>
-              <a href="#">Security Advisories</a>
-            </div>
-          </li>
-          <li class="menu-item has-dropdown">
-            Projects
-            <div class="dropdown-content">
-              <a href="#">Overview</a>
-              <a href="#">Spring Boot</a>
-              <a href="#">Spring Framework</a>
-              <a href="#">Spring Cloud</a>
-              <a href="#">Spring Cloud Data Flow</a>
-              <a href="#">Spring Data</a>
-              <a href="#">Spring Integration</a>
-              <a href="#">Spring Batch</a>
-              <a href="#">Spring Security</a>
-              <a href="#">Spring AI</a>
-            </div>
-          </li>
-          <li class="menu-item has-dropdown">
-            Academy
-            <div class="dropdown-content">
-              <a href="#">Courses</a>
-              <a href="#">Get Certified</a>
-            </div>
-          </li>
-          <li class="menu-item has-dropdown">
-            Community
-            <div class="dropdown-content">
-              <a href="#">Overview</a>
-              <a href="#">Events</a>
-              <a href="#">Authors</a>
-            </div>
-          </li>
-          <li class="menu-item">Tanzu Spring</li>
-        </ul>
+        <button class="close-btn">&times;</button>
+        <ul class="header__menu"></ul>
       </nav>
+      <div class="overlay"></div>
     </header>
     <main class="main">
       <section class="projects-banner">
@@ -91,92 +38,11 @@
         </div>
       </section>
       <div class="border"></div>
+      <div class="search-container">
+            <input type="text" class="search-box" placeholder="Search projects by title or description...">
+        </div>
       <section class="cards">
         <div class="container cards__container">
-          <article class="card">
-            <div class="card_heading">
-              <img src="img/spring-boot.svg" />
-              <h3 class="card__title">Spring Boot</h3>
-            </div>
-            <p class="card__description">
-              Takes an opinionated view of building Spring applications and gets
-              you up and running as quickly as possible.
-            </p>
-            <div class="versions">
-              <span class="current_ver">3.5.3</span>
-              <span class="all_ver">+ 9 versions</span>
-            </div>
-          </article>
-          <article class="card">
-            <div class="card_heading">
-              <img src="img/spring-framework.svg" />
-              <h3 class="card__title">Spring Framework</h3>
-            </div>
-            <p class="card__description">
-              Provides core support for dependency injection, transaction
-              management, web apps, data access, messaging, and more.
-            </p>
-            <div class="versions">
-              <span class="current_ver">6.2.8</span>
-              <span class="all_ver">+ 8 versions</span>
-            </div>
-          </article>
-          <article class="card">
-            <div class="card_heading">
-              <img src="img/spring-data.svg" />
-              <h3 class="card__title">Spring Data</h3>
-            </div>
-            <p class="card__description">
-              Provides a consistent approach to data access – relational,
-              non-relational, map-reduce, and beyond.
-            </p>
-            <div class="versions">
-              <span class="current_ver">2025.0.1</span>
-              <span class="all_ver">+ 6 versions</span>
-            </div>
-          </article>
-          <article class="card">
-            <div class="card_heading">
-              <img src="img/spring-cloud.svg" />
-              <h3 class="card__title">Spring Cloud</h3>
-            </div>
-            <p class="card__description">
-              Provides a set of tools for common patterns in distributed
-              systems. Useful for building and deploying microservices.
-            </p>
-            <div class="versions">
-              <span class="current_ver">2025.0.0</span>
-              <span class="all_ver">+ 9 versions</span>
-            </div>
-          </article>
-          <article class="card">
-            <div class="card_heading">
-              <img src="img/spring-data-flow.svg" />
-              <h3 class="card__title">Spring Cloud Data Flow</h3>
-            </div>
-            <p class="card__description">
-              Provides an orchestration service for composable data microservice
-              applications on modern runtimes.
-            </p>
-            <div class="versions">
-              <span class="current_ver">2.11.5</span>
-              <span class="all_ver">+ 7 versions</span>
-            </div>
-          </article>
-          <article class="card">
-            <div class="card_heading">
-              <img src="img/spring-security.svg" />
-              <h3 class="card__title">Spring Security</h3>
-            </div>
-            <p class="card__description">
-              Protects your application with comprehensive and extensible
-              authentication and authorization support.
-            </p>
-            <div class="versions">
-              <span class="current_ver">6.5.1</span>
-              <span class="all_ver">+ 10 versions</span>
-            </div>
-          </article>
         </div>
       </section>
     </main>
