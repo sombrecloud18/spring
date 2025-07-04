@@ -79,7 +79,7 @@ function renderProjects(projectsArray) {
   });
 }
 
-function search(renderProjects) {
+function search(projects) {
   let searchTimeout;
   const searchInput = document.querySelector(".search-box");
   searchInput.addEventListener("input", () => {
@@ -105,7 +105,7 @@ function initApp() {
   createNavigationMenu(navigationPoints);
   renderProjects(projects);
   mobileView();
-  search(renderProjects);
+  search(projects);
 }
 
 document.addEventListener("DOMContentLoaded", initApp);
