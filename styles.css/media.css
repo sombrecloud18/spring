@@ -31,17 +31,74 @@
   .card_heading {
     flex-direction: column;
   }
+
+  .search-container {
+    margin: 30px auto 20px;
+  }
+
+  .search-box {
+    font-size: 14px;
+  }
 }
 
 @media (max-width: 900px) {
-  .header__nav {
-    display: none;
-  }
-  .burger-menu {
-    display: block;
-    align-self: center;
-  }
   .header {
     justify-content: space-between;
+  }
+
+  .header__nav {
+    display: block;
+    position: fixed;
+    top: 0;
+    left: calc(100% - 280px);
+    width: 280px;
+    height: 100%;
+    background: white;
+    z-index: 1000;
+    transform: translateX(100%);
+    transition: transform 0.3s ease;
+    padding: 60px 20px 20px;
+    box-sizing: border-box;
+    overflow-y: auto;
+  }
+
+  .header__nav.open {
+    transform: translateX(0);
+  }
+
+  .overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 999;
+  }
+
+  .header__nav.open + .overlay {
+    display: block;
+  }
+
+  .header__nav.open > .header__menu {
+    flex-direction: column;
+  }
+
+  .close-btn {
+    display: block;
+    position: absolute;
+    top: 15px;
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    z-index: 1001;
+  }
+
+  .burger-menu {
+    display: block;
+    z-index: 1001;
+    align-self: center;
   }
 }

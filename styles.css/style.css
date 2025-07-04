@@ -60,6 +60,11 @@ html {
   position: relative;
 }
 
+.menu-item a {
+  color: #111;
+  text-decoration: none;
+}
+
 .menu-item:hover .dropdown-content {
   display: block;
 }
@@ -178,7 +183,7 @@ html {
   flex-wrap: wrap;
   justify-content: center;
   gap: 20px;
-  padding: 48px 0;
+  padding: 24px 0;
 }
 
 .cards__container {
@@ -260,4 +265,45 @@ html {
   width: auto;
   height: 40px;
   display: none;
+  cursor: pointer;
+}
+
+.overlay,
+.close-btn {
+  display: none;
+}
+
+.search-container {
+  max-width: 700px;
+  margin: 40px auto 30px;
+  padding: 0 20px;
+  display: flex;
+}
+
+.search-box {
+  width: 100%;
+  padding: 15px 20px 15px 50px;
+  border: 2px solid #e0e0e0;
+  border-radius: 50px;
+  font-size: 16px;
+  outline: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+  background-color: #fff;
+  color: #333;
+  font-family: "Open Sans", sans-serif;
+}
+
+.search-box:focus {
+  border-color: #6db33f;
+  box-shadow: 0 4px 20px rgba(109, 179, 63, 0.2);
+}
+
+.no-results {
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: 50px 0;
+  color: #666;
+  font-size: 18px;
+  font-family: "Open Sans", sans-serif;
 }
