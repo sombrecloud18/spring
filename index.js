@@ -1,14 +1,7 @@
 import { projects, navigationPoints } from "./constants.js";
-const burgerMenu = document.querySelector(".burger-menu");
-const headerNav = document.querySelector(".header__nav");
-const closeBtn = document.querySelector(".close-btn");
-const overlay = document.querySelector(".overlay");
-const container = document.querySelector(".cards__container");
-const navMenu = document.querySelector(".header__menu");
-const searchInput = document.querySelector(".search-box");
-let searchTimeout;
 
 function createNavigationMenu(navigationPoints) {
+  const navMenu = document.querySelector(".header__menu");
   navMenu.innerHTML = "";
   navigationPoints.forEach((point) => {
     const li = document.createElement("li");
@@ -33,6 +26,10 @@ function createNavigationMenu(navigationPoints) {
 }
 
 function mobileView() {
+  const burgerMenu = document.querySelector(".burger-menu");
+  const headerNav = document.querySelector(".header__nav");
+  const closeBtn = document.querySelector(".close-btn");
+  const overlay = document.querySelector(".overlay");
   burgerMenu.addEventListener("click", () => {
     headerNav.classList.add("open");
     burgerMenu.style.display = "none";
@@ -82,7 +79,9 @@ function renderProjects(projectsArray) {
   });
 }
 
-function search() {
+function search(renderProjects) {
+  let searchTimeout;
+  const searchInput = document.querySelector(".search-box");
   searchInput.addEventListener("input", () => {
     clearTimeout(searchTimeout);
     searchTimeout = setTimeout(() => {
@@ -106,7 +105,7 @@ function initApp() {
   createNavigationMenu(navigationPoints);
   renderProjects(projects);
   mobileView();
-  search();
+  search(renderProjects);
 }
 
 document.addEventListener("DOMContentLoaded", initApp);
