@@ -63,3 +63,22 @@
 .releaseButton:hover::before {
   left: 0;
 }
+
+@media (min-width: 1216px) {
+  .container {
+    max-width: 1152px;
+  }
+}
+
+@media (min-width: 1408px) {
+  .container {
+    max-width: 1344px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .container {
+    padding: 2rem 2rem;
+  }
+
+}

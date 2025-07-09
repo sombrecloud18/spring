@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
-import styles from '../../styles/modules/searchBox.module.css'
+import styles from './searchBox.module.css'
 
-function SearchBox({ onSearch }) {
+export const SearchBox= ({ onSearch }) => {
   const [searchTerm, setSearchTerm] = useState('');
 
   useEffect(() => {
@@ -24,5 +24,3 @@ function SearchBox({ onSearch }) {
     </div>
   );
 }
-
-export default SearchBox;

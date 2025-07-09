@@ -1,10 +1,10 @@
 import { useState, useEffect } from 'react';
 import classNames from 'classnames';
-import NavItem from './navItem';
-import BurgerMenu from './burgerMenu';
-import styles from '../../styles/modules/header.module.css';
+import {NavItem} from './nav-item';
+import {BurgerMenu} from './burger-menu';
+import styles from './header.module.css';
 
-function Header({ navigationPoints }) {
+export const Header = ({ navigationPoints }) => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
 
     useEffect(() => {
@@ -42,5 +42,3 @@ function Header({ navigationPoints }) {
         </header>
     );
 }
-
-export default Header;

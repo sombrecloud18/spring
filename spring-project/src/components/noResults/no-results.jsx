@@ -1,6 +1,6 @@
-import styles from '../../styles/modules/noResults.module.css'
+import styles from './noResults.module.css'
 
-function NoResults() {
+export const NoResults = () => {
     return (
         <div className={styles.noResults}>
         <h3>No projects found</h3>
@@ -8,5 +8,3 @@ function NoResults() {
         </div>
     );
 }
-
-export default NoResults;

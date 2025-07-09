@@ -1,6 +1,6 @@
-import styles from '../../styles/modules/header.module.css';
+import styles from './header.module.css';
 
-function BurgerMenu({ onClick }) {
+export const BurgerMenu = ({ onClick }) => {
   return (
     <img
       className={styles.burgerMenu}
@@ -11,4 +11,3 @@ function BurgerMenu({ onClick }) {
   );
 }
 
-export default BurgerMenu;

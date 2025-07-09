@@ -1,14 +1,14 @@
 import { useState, useEffect } from 'react';
 import { projects, navigationPoints } from './constants.js';
-import Header from './components/header/header.js';
-import ProjectsBanner from './components/projectsBanner/projectsBanner.js';
-import SearchBox from './components/searchBox/searchBox.js';
-import ProjectCard from './components/projectCard/projectCard.js';
-import NoResults from './components/noResults/noResults.js';
+import {Header} from './components/header/header.jsx';
+import {ProjectsBanner} from './components/projectsBanner/projects-banner.jsx';
+import {SearchBox} from './components/searchBox/search-box.jsx';
+import {ProjectCard} from './components/projectCard/project-card.jsx';
+import {NoResults} from './components/noResults/no-results.jsx';
 import './styles/style.css';
 import './styles/fonts.css';
 
-function App() {
+export const App = () => {
   const [filteredProjects, setFilteredProjects] = useState(projects);
   const [searchTerm, setSearchTerm] = useState('');
 
@@ -51,5 +51,3 @@ function App() {
     </div>
   );
 }
-
-export default App;

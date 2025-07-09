@@ -1,8 +1,8 @@
-import styles from '../../styles/modules/header.module.css';
+import styles from './header.module.css';
 import { useState } from 'react';
 import classNames from 'classnames';
 
-function NavItem({ point }) {
+export const NavItem = ({ point }) => {
   const [isHovered, setIsHovered] = useState(false);
 
   return (
@@ -32,5 +32,3 @@ function NavItem({ point }) {
     </li>
   );
 }
-
-export default NavItem;

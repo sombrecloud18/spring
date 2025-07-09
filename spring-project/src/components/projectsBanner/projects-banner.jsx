@@ -1,6 +1,6 @@
-import styles from '../../styles/modules/projectsBanner.module.css';
+import styles from './projectsBanner.module.css';
 
-function projectsBanner() {
+export const ProjectsBanner = () => {
     return(
         <section className= {styles.projectsBanner}>
         <div className={styles.container}>
@@ -16,5 +16,3 @@ function projectsBanner() {
       </section>
     )
 }
-
-export default projectsBanner;

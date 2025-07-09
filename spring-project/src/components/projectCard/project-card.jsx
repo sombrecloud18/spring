@@ -1,6 +1,6 @@
-import styles from '../../styles/modules/projectCard.module.css';
+import styles from './projectCard.module.css';
 
-function ProjectCard({ project }) {
+export const ProjectCard = ({ project }) => {
   return (
     <article className={styles.card}>
       <div className={styles.cardHeading}>
@@ -15,5 +15,3 @@ function ProjectCard({ project }) {
     </article>
   );
 }
-
-export default ProjectCard;
