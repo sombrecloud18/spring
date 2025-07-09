@@ -1,4 +1,4 @@
-import styles from './noResults.module.css'
+import styles from './no-results.module.css'
 
 export const NoResults = () => {
     return (

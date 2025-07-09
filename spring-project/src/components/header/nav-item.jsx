@@ -1,4 +1,4 @@
-import styles from './header.module.css';
+import styles from './nav-item.module.css';
 import { useState } from 'react';
 import classNames from 'classnames';
 

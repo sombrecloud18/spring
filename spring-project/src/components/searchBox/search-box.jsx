@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import styles from './searchBox.module.css'
+import styles from './search-box.module.css'
 
 export const SearchBox= ({ onSearch }) => {
   const [searchTerm, setSearchTerm] = useState('');

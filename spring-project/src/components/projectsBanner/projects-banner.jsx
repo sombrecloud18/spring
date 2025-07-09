@@ -1,4 +1,4 @@
-import styles from './projectsBanner.module.css';
+import styles from './projects-banner.module.css';
 
 export const ProjectsBanner = () => {
     return(

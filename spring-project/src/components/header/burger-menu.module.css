@@ -1,0 +1,14 @@
+.burgerMenu {
+  width: auto;
+  height: 40px;
+  display: none;
+  cursor: pointer;
+}
+
+@media (max-width: 900px) {
+      .burgerMenu {
+    display: block;
+    z-index: 1001;
+    align-self: center;
+  }
+}
