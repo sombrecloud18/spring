@@ -1,7 +1,7 @@
 :root {
   --bg-color: #fff;
-  --main-font: "Open Sans";
-  --accent-font: "Metropolis";
+  --main-font: 'Open Sans';
+  --accent-font: 'Metropolis';
   --border-color: #d9e9e9;
 }
 
@@ -49,7 +49,6 @@ html {
   padding: 0 20px;
 }
 
-
 .border {
   background: linear-gradient(45deg, #6db33f 26%, #80ea6e 89%);
   height: 6px;
@@ -72,7 +71,3 @@ html {
     padding: 2rem 2rem;
   }
 }
-
-
-
-

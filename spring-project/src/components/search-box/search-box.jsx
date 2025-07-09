@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
-import styles from './search-box.module.css'
+import styles from './search-box.module.css';
 
-export const SearchBox= ({ onSearch }) => {
+export const SearchBox = ({ onSearch }) => {
   const [searchTerm, setSearchTerm] = useState('');
 
   useEffect(() => {
@@ -23,4 +23,4 @@ export const SearchBox= ({ onSearch }) => {
       />
     </div>
   );
-}
+};

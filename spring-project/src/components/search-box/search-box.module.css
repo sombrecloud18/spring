@@ -16,7 +16,7 @@
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
   background-color: #fff;
   color: #333;
-  font-family: "Open Sans", sans-serif;
+  font-family: 'Open Sans', sans-serif;
 }
 
 .searchBox:focus {
@@ -24,8 +24,8 @@
   box-shadow: 0 4px 20px rgba(109, 179, 63, 0.2);
 }
 
-@media(max-width: 768px){ 
-    .searchContainer {
+@media (max-width: 768px) {
+  .searchContainer {
     margin: 30px auto 20px;
   }
 

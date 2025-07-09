@@ -6,7 +6,7 @@
 }
 
 @media (max-width: 900px) {
-      .burgerMenu {
+  .burgerMenu {
     display: block;
     z-index: 1001;
     align-self: center;
