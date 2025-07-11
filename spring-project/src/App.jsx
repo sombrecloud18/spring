@@ -8,7 +8,7 @@ import { NoResults } from './components/no-results/no-results.jsx';
 import './styles/style.css';
 import './styles/fonts.css';
 
-export const App = () => {
+export const useSearch = (projects) => {
   const [filteredProjects, setFilteredProjects] = useState(projects);
   const [searchTerm, setSearchTerm] = useState('');
 
@@ -30,6 +30,11 @@ export const App = () => {
     return () => clearTimeout(timer);
   }, [searchTerm]);
 
+  return { filteredProjects, searchTerm, setSearchTerm };
+};
+
+export const App = () => {
+  const { filteredProjects, setSearchTerm } = useSearch(projects);
   return (
     <div className="body">
       <Header navigationPoints={navigationPoints} />

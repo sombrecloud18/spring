@@ -4,7 +4,7 @@ import { NavItem } from '../nav-item/nav-item';
 import { BurgerMenu } from '../burger-menu/burger-menu';
 import styles from './header.module.css';
 
-export const Header = ({navigationPoints}) => {
+export const Header = ({ navigationPoints }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   useEffect(() => {
