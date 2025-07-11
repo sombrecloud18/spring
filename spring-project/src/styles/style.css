@@ -1,0 +1,73 @@
+:root {
+  --bg-color: #fff;
+  --main-font: 'Open Sans';
+  --accent-font: 'Metropolis';
+  --border-color: #d9e9e9;
+}
+
+html {
+  font-size: 16px;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+}
+
+.body {
+  background-color: var(--bg-color);
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.main {
+  width: 100%;
+}
+
+.container {
+  padding: 3rem 0;
+  max-width: 960px;
+}
+
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  padding: 24px 0;
+}
+
+.cardsContainer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.border {
+  background: linear-gradient(45deg, #6db33f 26%, #80ea6e 89%);
+  height: 6px;
+}
+
+@media (min-width: 1216px) {
+  .container {
+    max-width: 1152px;
+  }
+}
+
+@media (min-width: 1408px) {
+  .container {
+    max-width: 1344px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .container {
+    padding: 2rem 2rem;
+  }
+}
