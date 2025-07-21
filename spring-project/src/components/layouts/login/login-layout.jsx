@@ -1,10 +1,10 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-import { loginSuccess } from '../../redux/auth-actions.js';
+import { loginSuccess } from '../../../redux/auth-actions.js';
 import styles from './login.module.css';
 
-export function LoginPage() {
+export const LoginLayout = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
@@ -53,4 +53,4 @@ export function LoginPage() {
       </form>
     </div>
   );
-}
+};

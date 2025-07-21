@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import classNames from 'classnames';
-import { NavItem } from '../nav-item/nav-item';
-import { BurgerMenu } from '../burger-menu/burger-menu';
+import { NavItem } from '../nav-item/nav-item.jsx';
+import { BurgerMenu } from '../burger-menu/burger-menu.jsx';
 import styles from './header.module.css';
 
 export const Header = ({ navigationPoints }) => {
@@ -20,7 +20,7 @@ export const Header = ({ navigationPoints }) => {
 
   return (
     <header className={styles.header}>
-      <img className={styles.headerLogo} src="/img/logo.png" alt="Логотип Spring.io" />
+      <img className={styles.headerLogo} src="/images/logo.png" alt="Логотип Spring.io" />
       <BurgerMenu onClick={() => setIsMenuOpen(!isMenuOpen)} />
       <nav className={classNames(styles.headerNav, { [styles.open]: isMenuOpen })}>
         <button className={styles.closeBtn} onClick={() => setIsMenuOpen(false)}>

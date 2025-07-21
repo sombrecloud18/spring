@@ -1,15 +1,12 @@
 import { useSelector } from 'react-redux';
 import { Routes, Route, Navigate, Outlet } from 'react-router-dom';
-import { Header } from '../components/header/header.jsx';
-import { LoginPage } from '../pages/login/login-page.jsx';
-import { MainContent } from '../pages/main-content.jsx';
-import { navigationPoints } from '../constants.js';
+import { LoginLayout } from '../components/layouts/login/login-layout.jsx';
+import { MainPage } from '../components/containers/main-content.jsx';
 
 const AuthLayout = () => (
   <>
-    <Header navigationPoints={navigationPoints} />
     <main className="main">
-      <MainContent />
+      <MainPage />
     </main>
   </>
 );
@@ -27,8 +24,8 @@ const UnAuthRoute = () => {
 export const AppRoutes = () => (
   <Routes>
     <Route element={<UnAuthRoute />}>
-      <Route index element={<LoginPage />} />
-      <Route path="/login" element={<LoginPage />} />
+      <Route index element={<LoginLayout />} />
+      <Route path="/login" element={<LoginLayout />} />
     </Route>
 
     <Route element={<AuthRoute />}>
