@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-import { loginSuccess } from '../../redux/authActions.js';
+import { loginSuccess } from '../../redux/auth-actions.js';
 import styles from './login.module.css';
 
 export function LoginPage() {
@@ -18,7 +18,7 @@ export function LoginPage() {
       localStorage.setItem('isAuthenticated', 'true');
       navigate('/main');
     } else {
-      setError('Данные введены неверно');
+      setError('Incorrect login or password');
     }
   };
 
