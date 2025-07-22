@@ -1,7 +1,7 @@
 import { useSelector } from 'react-redux';
 import { Routes, Route, Navigate, Outlet } from 'react-router-dom';
 import { LoginLayout } from '../components/layouts/login/login-layout.jsx';
-import { MainLayout } from '../components/layouts/main-layout.jsx';
+import { MainLayout } from '../components/layouts/main-layout/main-layout.jsx';
 
 const AuthRoute = () => {
   const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
