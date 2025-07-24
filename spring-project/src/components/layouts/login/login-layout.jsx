@@ -11,14 +11,27 @@ export const LoginLayout = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    if (username === 'admin' && password === '1234') {
-      dispatch(loginSuccess());
-      localStorage.setItem('isAuthenticated', 'true');
-      navigate('/main');
-    } else {
-      setError('Incorrect login or password');
+    try {
+      const response = await fetch('http://localhost:5000/api/login', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ username, password }),
+      });
+
+      const data = await response.json();
+
+      if (data.success) {
+        dispatch(loginSuccess());
+        localStorage.setItem('isAuthenticated', 'true');
+        navigate('/main');
+      } else {
+        setError(data.message || 'Incorrect login or password');
+      }
+    } catch (err) {
+      setError(err.message || 'Network error. Please try again.');
+      console.error('Login error:', err);
     }
   };
 
