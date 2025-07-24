@@ -31,14 +31,6 @@ html {
   max-width: 960px;
 }
 
-.cards {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 20px;
-  padding: 24px 0;
-}
-
 .cardsContainer {
   display: flex;
   flex-wrap: wrap;
@@ -47,6 +39,14 @@ html {
   max-width: 960px;
   margin: 0 auto;
   padding: 0 20px;
+}
+
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  padding: 24px 0;
 }
 
 .border {

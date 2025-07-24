@@ -1,6 +1,6 @@
-import styles from './nav-item.module.css';
 import { useState } from 'react';
 import classNames from 'classnames';
+import styles from './nav-item.module.css';
 
 export const NavItem = ({ point }) => {
   const [isHovered, setIsHovered] = useState(false);
@@ -8,7 +8,7 @@ export const NavItem = ({ point }) => {
   return (
     <li
       className={classNames(styles.menuItem, {
-        [styles.hasDropdown]: point.dropdown
+        [styles.hasDropdown]: point.dropdown,
       })}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
@@ -31,4 +31,4 @@ export const NavItem = ({ point }) => {
       )}
     </li>
   );
-}
+};
