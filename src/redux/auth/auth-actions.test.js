@@ -1,6 +1,6 @@
-import configureMockStore from 'redux-mock-store';
+import { configureStore as configureMockStore } from 'redux-mock-store';
 import { jest, describe, it, expect, beforeEach } from '@jest/globals';
-import thunk from 'redux-thunk';
+import { thunk } from 'redux-thunk';
 import { loginUser, LOGIN_REQUEST, LOGIN_SUCCESS, LOGIN_FAILURE } from './auth-actions.js';
 
 globalThis.fetch = jest.fn();
@@ -32,14 +32,17 @@ describe('loginUser thunk', () => {
     });
 
     const store = mockStore({});
-    store.dispatch(loginUser('wrong', 'wrongpass'));
-
-    expect(store.getActions()).toEqual([
-      { type: LOGIN_REQUEST },
-      {
-        type: LOGIN_FAILURE,
-        payload: 'Invalid credentials',
-      },
-    ]);
+    try {
+      await store.dispatch(loginUser('wrong', 'wrongpass'));
+    } catch (error) {
+      expect(error.message).toBe('Invalid credentials');
+      expect(store.getActions()).toEqual([
+        { type: LOGIN_REQUEST },
+        {
+          type: LOGIN_FAILURE,
+          payload: 'Invalid credentials',
+        },
+      ]);
+    }
   });
 });
