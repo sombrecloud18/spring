@@ -1,0 +1,105 @@
+.header {
+  display: flex;
+  flex-direction: row;
+  padding: 5px 0;
+  max-width: 960px;
+  min-height: 3.25rem;
+  width: 100%;
+}
+
+.headerLogo {
+  padding: 8px 52px;
+  max-width: 152px;
+  height: auto;
+  width: auto;
+  margin-block: auto;
+}
+
+.headerNav {
+  flex-grow: 1;
+  margin-block: auto;
+}
+
+.headerMenu {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  position: relative;
+}
+
+.overlay,
+.closeBtn {
+  display: none;
+}
+
+@media (min-width: 1216px) {
+  .header {
+    max-width: 1152px;
+  }
+}
+
+@media (min-width: 1408px) {
+  .header {
+    max-width: 1344px;
+  }
+}
+
+@media (max-width: 900px) {
+  .header {
+    justify-content: space-between;
+  }
+
+  .headerLogo {
+    padding-inline: 20px;
+  }
+
+  .headerNav {
+    display: block;
+    position: fixed;
+    top: 0;
+    left: calc(100% - 280px);
+    width: 280px;
+    height: 100%;
+    background: white;
+    z-index: 1000;
+    transform: translateX(100%);
+    transition: transform 0.3s ease;
+    padding: 60px 20px 20px;
+    box-sizing: border-box;
+    overflow-y: auto;
+  }
+
+  .headerNav.open {
+    transform: translateX(0);
+  }
+
+  .overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 999;
+  }
+
+  .headerNav.open + .overlay {
+    display: block;
+  }
+
+  .headerNav.open > .headerMenu {
+    flex-direction: column;
+  }
+
+  .closeBtn {
+    display: block;
+    position: absolute;
+    top: 15px;
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    z-index: 1001;
+  }
+}
