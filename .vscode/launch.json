@@ -1,0 +1,39 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Debug Current Jest Test",
+      "type": "node",
+      "request": "launch",
+      "runtimeExecutable": "npm",
+      "args": [
+        "run",
+        "test",
+        "--",
+        "${fileBasename}",
+        "--runInBand",
+        "--no-cache",
+        "--watchAll=false",
+        "--env=jsdom",
+        "--verbose"
+      ],
+      "cwd": "${workspaceFolder}/spring-project/src/redux/auth",
+      "console": "integratedTerminal",
+      "internalConsoleOptions": "neverOpen",
+      "skipFiles": ["<node_internals>/**"],
+      "windows": {
+        "runtimeExecutable": "npm.cmd"
+      }
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "Debug Node Server",
+      "program": "${workspaceFolder}/backend/server.js",
+      "cwd": "${workspaceFolder}",
+      "skipFiles": ["<node_internals>/**"],
+      "console": "integratedTerminal",
+      "runtimeArgs": ["--inspect"]
+    }
+  ]
+}
