@@ -25,9 +25,13 @@
     "eject": "react-scripts eject"
   },
   "jest": {
-    "transformIgnorePatterns": [
-      "node_modules/(?!redux|react-redux|@babel/runtime/helpers/esm/)"
-    ]
+    "testMatch": [
+      "**/src/**/*.test.js",
+      "**/__tests__/**/*.test.js"
+    ],
+    "moduleNameMapper": {
+      "^redux-mock-store$": "<rootDir>/node_modules/redux-mock-store"
+    }
   },
   "browserslist": {
     "production": [
