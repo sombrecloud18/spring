@@ -1,26 +1,30 @@
 import { useState, useEffect } from 'react';
 
-export const useSearch = (projects) => {
-  const [filteredProjects, setFilteredProjects] = useState(projects);
+export const useSearch = (apiFunc) => {
+  const [filteredData, setFilteredData] = useState([]);
   const [searchTerm, setSearchTerm] = useState('');
 
   useEffect(() => {
     const timer = setTimeout(() => {
-      if (!searchTerm) {
-        setFilteredProjects(projects);
+      if (!searchTerm.trim()) {
+        setFilteredData([]);
         return;
       }
 
-      const filtered = projects.filter(
-        (project) =>
-          project.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
-          project.description.toLowerCase().includes(searchTerm.toLowerCase()),
-      );
-      setFilteredProjects(filtered);
+      const fetchData = async () => {
+        try {
+          const data = await apiFunc(searchTerm);
+          setFilteredData(data);
+        } catch (err) {
+          console.error('Search error:', err);
+          setFilteredData([]);
+        }
+      };
+      fetchData();
     }, 300);
 
     return () => clearTimeout(timer);
-  }, [searchTerm, projects]);
+  }, [searchTerm, apiFunc]);
 
-  return { filteredProjects, searchTerm, setSearchTerm };
+  return { filteredData, searchTerm, setSearchTerm };
 };

@@ -2,18 +2,24 @@ import { useEffect, useState } from 'react';
 import { ProjectCard } from '../../ui/project-card/project-card';
 import { NoResults } from '../../ui/no-results/no-results';
 import { SearchBox } from '../../ui/search-box/search-box';
+import { projectsApi } from '../../../api/api';
+import { useSearch } from '../../../hooks/use-search';
 import styles from './projects-container.module.css';
 
 export const ProjectsContainer = () => {
   const [projects, setProjects] = useState([]);
-  const [searchTerm, setSearchTerm] = useState('');
   const [loading, setLoading] = useState(true);
+
+  const {
+    filteredData: searchedProjects,
+    searchTerm,
+    setSearchTerm,
+  } = useSearch(projectsApi.getProjects);
 
   useEffect(() => {
     const fetchProjects = async () => {
       try {
-        const response = await fetch(`http://localhost:5000/api/projects?search=${searchTerm}`);
-        const data = await response.json();
+        const data = await projectsApi.getProjects('');
         setProjects(data);
       } catch (error) {
         console.error('Error fetching projects:', error);
@@ -23,7 +29,9 @@ export const ProjectsContainer = () => {
     };
 
     fetchProjects();
-  }, [searchTerm]);
+  }, []);
+
+  const projectsToShow = searchTerm ? searchedProjects : projects;
 
   if (loading) return <div>Loading...</div>;
 
@@ -32,10 +40,10 @@ export const ProjectsContainer = () => {
       <SearchBox onSearch={setSearchTerm} />
       <section className={styles.cards}>
         <div className={`${styles.container} ${styles.cardsContainer}`}>
-          {projects.length === 0 ? (
+          {projectsToShow.length === 0 ? (
             <NoResults />
           ) : (
-            projects.map((project) => <ProjectCard key={project.title} project={project} />)
+            projectsToShow.map((project) => <ProjectCard key={project.id} project={project} />)
           )}
         </div>
       </section>
