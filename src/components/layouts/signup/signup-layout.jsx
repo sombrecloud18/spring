@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-import { authApi } from '../../../api/api.js';
+import { authApi, setAccessToken } from '../../../api/api.js';
 import { loginSuccess } from '../../../redux/auth-actions.js';
 import styles from './signup.module.css';
 
@@ -51,28 +51,17 @@ export const SignUpLayout = () => {
         age: formData.age,
       });
 
-      if (response.success) {
-        const loginResponse = await authApi.login({
-          username: formData.username,
-          password: formData.password,
-        });
-
-        if (loginResponse.success) {
-          dispatch(loginSuccess(loginResponse.user));
-          navigate('/main');
-        } else {
-          navigate('/login');
-        }
-      } else {
-        setError(response.message || 'Registration failed');
+      if (response.accessToken) {
+        setAccessToken(response.accessToken);
+        dispatch(loginSuccess(response.user));
+        navigate('/main');
       }
     } catch (err) {
-      if (err.errors) {
-        setErrors(err.errors);
+      if (err.response?.errors) {
+        setErrors(err.response.errors);
       } else {
         setError(err.message || 'Registration error. Please try again.');
       }
-      console.error('Signup error:', err);
     } finally {
       setIsLoading(false);
     }

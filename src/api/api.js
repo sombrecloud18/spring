@@ -1,4 +1,4 @@
-const API_BASE_URL = 'http://localhost:5000/api';
+const API_BASE_URL = 'http://localhost:5000';
 
 let accessToken = localStorage.getItem('accessToken') || null;
 let isRefreshing = false;
@@ -44,6 +44,7 @@ export const setAccessToken = (token) => {
 export const clearAuthData = () => {
   setAccessToken(null);
   localStorage.removeItem('user');
+  localStorage.removeItem('refreshToken');
 };
 
 async function fetchWithAuth(url, options = {}) {
@@ -69,6 +70,14 @@ async function fetchWithAuth(url, options = {}) {
         const refreshResponse = await authApi.refreshToken();
         setAccessToken(refreshResponse.accessToken);
         onRefreshed(refreshResponse.accessToken);
+        const retryOptions = {
+          ...options,
+          headers: {
+            ...options.headers,
+            Authorization: `Bearer ${refreshResponse.accessToken}`,
+          },
+        };
+        return fetch(url, retryOptions).then(handleResponse);
       } catch (error) {
         clearAuthData();
         window.location.href = '/login';
@@ -137,44 +146,22 @@ export const authApi = {
   },
 
   signUp: async (userData) => {
-    try {
-      const response = await fetch(`${API_BASE_URL}/signup`, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        credentials: 'include',
-        body: JSON.stringify(userData),
-      });
+    const response = await fetch(`${API_BASE_URL}/signup`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      credentials: 'include',
+      body: JSON.stringify(userData),
+    });
 
-      const data = await handleResponse(response);
-      return data;
-    } catch (error) {
-      if (error.response?.status === 400 && error.response.data?.errors) {
-        const fieldErrors = {};
-        Object.entries(error.response.data.errors).forEach(([, message]) => {
-          const fieldName = message.includes('Last name')
-            ? 'lastName'
-            : message.includes('First name')
-              ? 'firstName'
-              : message.includes('Username')
-                ? 'username'
-                : message.includes('Password')
-                  ? 'password'
-                  : message.includes('Age')
-                    ? 'age'
-                    : 'repeatPassword';
-
-          fieldErrors[fieldName] = message;
-        });
-
-        throw {
-          errors: fieldErrors,
-          message: 'Validation failed',
-        };
-      }
+    if (!response.ok) {
+      const errorData = await response.json();
+      const error = new Error(errorData.message || 'Signup failed');
+      error.response = errorData;
       throw error;
     }
+    return handleResponse(response);
   },
 };
 
