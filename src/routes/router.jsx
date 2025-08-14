@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { Routes, Route, Navigate, Outlet, useNavigate } from 'react-router-dom';
+import { Routes, Route, Navigate, Outlet } from 'react-router-dom';
 import { LoginLayout } from '../components/layouts/login/login-layout.jsx';
 import { MainLayout } from '../components/layouts/main-layout/main-layout.jsx';
 import { SignUpLayout } from '../components/layouts/signup/signup-layout.jsx';
@@ -9,7 +9,6 @@ import { loginSuccess } from '../redux/auth-actions.js';
 
 const AuthRoute = () => {
   const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
-  const navigate = useNavigate();
   const [loading, setLoading] = useState(true);
   const dispatch = useDispatch();
 
@@ -34,10 +33,10 @@ const AuthRoute = () => {
     };
 
     checkAuth();
-  }, [dispatch, navigate]);
+  }, [dispatch]);
 
   if (loading) {
-    return <div>Loading...</div>; // Или ваш лоадер
+    return <div>Loading...</div>;
   }
 
   return isAuthenticated ? <Outlet /> : <Navigate to="/login" replace />;

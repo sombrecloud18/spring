@@ -12,7 +12,8 @@ export default [
     languageOptions: {
       globals: {
         ...globals.browser,
-        ...globals.es2021
+        ...globals.es2021,
+        "process": true,
       },
       parserOptions: {
         ecmaFeatures: {
@@ -35,6 +36,7 @@ export default [
       'react/react-in-jsx-scope': 'off',
       'react/prop-types': 'off',
       'arrow-body-style': ['error', 'as-needed'],
+      "no-unused-expressions": "error",
       'no-console': ['warn', { allow: ['warn', 'error', 'info'] }],
       'import/order': [
         'error',

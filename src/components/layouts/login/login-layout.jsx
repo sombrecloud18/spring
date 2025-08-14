@@ -1,8 +1,7 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-import { loginSuccess } from '../../../redux/auth-actions.js';
-import { authApi } from '../../../api/api.js';
+import { login } from '../../../redux/auth-actions.js';
 import styles from './login.module.css';
 
 export const LoginLayout = () => {
@@ -19,14 +18,8 @@ export const LoginLayout = () => {
     setError('');
 
     try {
-      const data = await authApi.login({ username, password });
-
-      if (data.success) {
-        dispatch(loginSuccess(data.user));
-        navigate('/main');
-      } else {
-        setError(data.message || 'Incorrect login or password');
-      }
+      await dispatch(login({ username, password }));
+      navigate('/main');
     } catch (err) {
       setError(err.message || 'Network error. Please try again.');
       console.error('Login error:', err);

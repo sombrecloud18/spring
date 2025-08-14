@@ -1,4 +1,4 @@
-const API_BASE_URL = 'http://localhost:5000';
+const API_BASE_URL = process.env.REACT_APP_BASE_URL;
 
 let accessToken = localStorage.getItem('accessToken') || null;
 let isRefreshing = false;
