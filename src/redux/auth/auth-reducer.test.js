@@ -1,6 +1,6 @@
 import { describe, it, expect } from '@jest/globals';
-import { authReducer } from '..auth-reducer.js';
-import { LOGIN_REQUEST, LOGIN_SUCCESS, LOGIN_FAILURE } from '..auth-actions.js';
+import { LOGIN_REQUEST, LOGIN_SUCCESS, LOGIN_FAILURE } from '../auth-actions.js';
+import { authReducer } from '../auth-reducer.js';
 
 describe('authReducer', () => {
   const initialState = {
