@@ -1,6 +1,6 @@
 import { configureStore as configureMockStore } from 'redux-mock-store';
 import { jest, describe, it, expect, beforeEach } from '@jest/globals';
-import thunk from 'redux-thunk';
+import { thunk } from 'redux-thunk';
 import { login, LOGIN_REQUEST, LOGIN_SUCCESS, LOGIN_FAILURE } from '../auth-actions.js';
 
 globalThis.fetch = jest.fn();
