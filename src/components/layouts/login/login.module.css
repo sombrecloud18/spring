@@ -29,6 +29,23 @@
     font-weight: 600;
 }
 
+.signUpButton {
+    background-color: #e8f5bb;
+    border: 1px #ddd solid;
+    height: 2rem;
+    border-radius: 10px;
+    cursor: pointer;
+    text-transform: uppercase;
+    font-weight: 600;
+    margin-top: 5px;
+    width: 400px;
+}
+
+.signUpButton:hover {
+    background-color: #eff188;
+}
+
+
 .loginButton:hover {
     background-color: #eff188;
 }

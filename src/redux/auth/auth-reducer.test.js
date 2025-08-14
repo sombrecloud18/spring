@@ -1,12 +1,13 @@
 import { describe, it, expect } from '@jest/globals';
-import { authReducer } from './auth-reducer.js';
-import { LOGIN_REQUEST, LOGIN_SUCCESS, LOGIN_FAILURE } from './auth-actions.js';
+import { LOGIN_REQUEST, LOGIN_SUCCESS, LOGIN_FAILURE } from '../auth-actions.js';
+import { authReducer } from '../auth-reducer.js';
 
 describe('authReducer', () => {
   const initialState = {
     isAuthenticated: false,
-    error: null,
+    user: null,
     loading: false,
+    error: null,
   };
 
   it('should return initial state', () => {
@@ -15,28 +16,32 @@ describe('authReducer', () => {
 
   it('should handle LOGIN_REQUEST', () => {
     expect(authReducer(initialState, { type: LOGIN_REQUEST })).toEqual({
-      isAuthenticated: false,
-      error: null,
+      ...initialState,
       loading: true,
     });
   });
 
   it('should handle LOGIN_SUCCESS', () => {
-    expect(authReducer({ ...initialState, loading: true }, { type: LOGIN_SUCCESS })).toEqual({
+    const user = { id: 1, username: 'test' };
+    expect(
+      authReducer({ ...initialState, loading: false }, { type: LOGIN_SUCCESS, payload: { user } }),
+    ).toEqual({
       isAuthenticated: true,
-      error: null,
+      user,
       loading: false,
+      error: null,
     });
   });
 
   it('should handle LOGIN_FAILURE', () => {
     const error = 'Invalid credentials';
     expect(
-      authReducer({ ...initialState, loading: true }, { type: LOGIN_FAILURE, payload: error }),
+      authReducer({ ...initialState, loading: false }, { type: LOGIN_FAILURE, payload: { error } }),
     ).toEqual({
       isAuthenticated: false,
-      error: error,
+      user: null,
       loading: false,
+      error,
     });
   });
 });
